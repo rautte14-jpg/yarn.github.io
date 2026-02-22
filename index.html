@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Nitin Wool — Deals on Wool & Yarn</title>
+<style>
+   :root{
+     --bg:#f6f6f8;
+     --card:#ffffff;
+     --text:#111827;
+     --muted:#6b7280;
+     --brand:#ff4d4f;
+     --brand2:#ffb020;
+     --border:#e5e7eb;
+     --shadow:0 8px 20px rgba(0,0,0,.06);
+     --radius:14px;
+   }
+   *{box-sizing:border-box}
+   body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}
+   a{color:inherit;text-decoration:none}
+   .topbar{
+     background:linear-gradient(90deg,var(--brand),var(--brand2));
+     color:#fff;
+     padding:10px 14px;
+     font-weight:700;
+     text-align:center;
+     font-size:14px;
+   }
+   header{
+     position:sticky;top:0;z-index:10;
+     background:#fff;border-bottom:1px solid var(--border);
+   }
+   .nav{
+     display:flex;gap:10px;align-items:center;
+     padding:12px 14px;max-width:1100px;margin:0 auto;
+   }
+   .logo{font-weight:900;letter-spacing:.2px}
+   .search{
+     flex:1;display:flex;gap:8px;align-items:center;
+     background:var(--bg);border:1px solid var(--border);
+     padding:10px 12px;border-radius:999px;
+   }
+   .search input{border:none;outline:none;background:transparent;width:100%}
+   .btn{
+     border:none;cursor:pointer;
+     padding:10px 12px;border-radius:999px;
+     background:var(--brand);color:#fff;font-weight:800;
+   }
+   .iconbtn{
+     border:1px solid var(--border);background:#fff;
+     padding:10px 12px;border-radius:999px;cursor:pointer;
+     font-weight:800;
+   }
+   main{max-width:1100px;margin:14px auto 90px; padding:0 14px;}
+   .hero{
+     display:grid;grid-template-columns:1.5fr 1fr;gap:12px;
+   }
+   .banner{
+     background:linear-gradient(135deg,#111827 0%,#374151 60%,#111827 100%);
+     color:#fff;padding:18px;border-radius:var(--radius);
+     box-shadow:var(--shadow);
+     position:relative;overflow:hidden;
+     min-height:160px;
+   }
+   .banner h1{margin:0 0 8px;font-size:22px}
+   .banner p{margin:0 0 12px;color:#e5e7eb}
+   .pill{
+     display:inline-flex;align-items:center;gap:8px;
+     background:rgba(255,255,255,.12);
+     border:1px solid rgba(255,255,255,.18);
+     padding:8px 10px;border-radius:999px;font-weight:800;
+     font-size:13px;
+   }
+   .timer{font-variant-numeric:tabular-nums}
+   .side{
+     display:grid;gap:12px;
+   }
+   .mini{
+     background:var(--card);border:1px solid var(--border);
+     border-radius:var(--radius);padding:14px;box-shadow:var(--shadow);
+   }
+   .mini h3{margin:0 0 6px;font-size:16px}
+   .mini p{margin:0;color:var(--muted);font-size:13px}
+   .categories{
+     margin-top:14px;
+     display:flex;gap:10px;overflow:auto;padding-bottom:6px;
+     scroll-snap-type:x mandatory;
+   }
+   .cat{
+     flex:0 0 auto;
+     background:#fff;border:1px solid var(--border);
+     border-radius:999px;padding:10px 12px;
+     font-weight:800;font-size:13px;
+     scroll-snap-align:start;
+   }
+   .section{margin-top:18px}
+   .sectionhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+   .sectionhead h2{margin:0;font-size:18px}
+   .sectionhead a{color:var(--brand);font-weight:800}
+   .grid{
+     margin-top:10px;
+     display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
+   }
+   .card{
+     background:#fff;border:1px solid var(--border);
+     border-radius:var(--radius);overflow:hidden;
+     box-shadow:var(--shadow);
+     display:flex;flex-direction:column;
+   }
+   .img{
+     background:linear-gradient(135deg,#fef3c7,#fde68a);
+     height:140px;display:flex;align-items:center;justify-content:center;
+     font-weight:900;color:#92400e;
+   }
+   .content{padding:12px;display:flex;flex-direction:column;gap:8px}
+   .title{font-weight:800;font-size:14px;line-height:1.2}
+   .meta{font-size:12px;color:var(--muted)}
+   .priceRow{display:flex;align-items:center;justify-content:space-between;gap:10px}
+   .price{font-weight:900}
+   .strike{color:var(--muted);text-decoration:line-through;font-weight:700;font-size:12px;margin-left:6px}
+   .badge{
+     background:var(--brand);color:#fff;
+     font-weight:900;font-size:12px;
+     padding:6px 10px;border-radius:999px;
+   }
+   .add{width:100%;border:none;background:#111827;color:#fff;font-weight:900;padding:10px;border-radius:12px;cursor:pointer}
+   .trust{
+     display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px
+   }
+   .trust .mini{box-shadow:none}
+   footer{
+     max-width:1100px;margin:0 auto;padding:22px 14px;color:var(--muted);font-size:13px
+   }
+   .bottomnav{
+     position:fixed;left:0;right:0;bottom:0;
+     background:#fff;border-top:1px solid var(--border);
+     display:flex;justify-content:space-around;gap:10px;
+     padding:10px 8px;
+   }
+   .bnitem{display:flex;flex-direction:column;align-items:center;font-size:11px;color:var(--muted);font-weight:800}
+   .bnitem strong{color:#111827;font-size:12px}
+   @media (max-width: 960px){
+     .grid{grid-template-columns:repeat(2,1fr)}
+     .hero{grid-template-columns:1fr}
+   }
+</style>
+</head>
+<body>
+<div class="topbar">🔥 Flash Deals • Free shipping over €49 • 14-day returns</div>
+<header>
+<div class="nav">
+<div class="logo">Nitin Wool</div>
+<div class="search">
+       🔎 <input placeholder="Search yarn, sweaters, blankets…" />
+</div>
+<button class="iconbtn">🛒 Cart</button>
+<button class="btn">Sign in</button>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="banner">
+<div class="pill">⏳ Flash Sale ends in <span class="timer" id="timer">03:21:10</span></div>
+<h1>Warm, soft wool — priced like a deal.</h1>
+<p>Yarn, shawls, sweaters, blankets. New drops every week.</p>
+<button class="btn" style="background:#fff;color:#111827">Shop Flash Deals</button>
+</div>
+<div class="side">
+<div class="mini">
+<h3>🎁 New customer offer</h3>
+<p>Get 10% off your first order (code: FIRST10)</p>
+</div>
+<div class="mini">
+<h3>🚚 Fast shipping</h3>
+<p>Tracked delivery + easy returns.</p>
+</div>
+</div>
+</section>
+<div class="categories">
+<a class="cat" href="#">🧶 Yarn</a>
+<a class="cat" href="#">🧥 Sweaters</a>
+<a class="cat" href="#">🧣 Shawls</a>
+<a class="cat" href="#">🛏️ Blankets</a>
+<a class="cat" href="#">🎨 Dyed</a>
+<a class="cat" href="#">🌿 Eco</a>
+<a class="cat" href="#">⭐ Best sellers</a>
+</div>
+<section class="section">
+<div class="sectionhead">
+<h2>🔥 Hot deals</h2>
+<a href="#">View all</a>
+</div>
+<div class="grid">
+<!-- Duplicate these cards for real products -->
+<article class="card">
+<div class="img">Product image</div>
+<div class="content">
+<div class="title">Merino Wool Yarn 100g — Super Soft</div>
+<div class="meta">Ships in 24–48h • 4.8 ★ (1,240)</div>
+<div class="priceRow">
+<div class="price">€7.99 <span class="strike">€12.99</span></div>
+<div class="badge">-38%</div>
+</div>
+<button class="add">Add to cart</button>
+</div>
+</article>
+<article class="card">
+<div class="img">Product image</div>
+<div class="content">
+<div class="title">Handwoven Wool Shawl — Winter Warm</div>
+<div class="meta">Limited stock • 4.7 ★ (620)</div>
+<div class="priceRow">
+<div class="price">€24.90 <span class="strike">€39.90</span></div>
+<div class="badge">-37%</div>
+</div>
+<button class="add">Add to cart</button>
+</div>
+</article>
+<article class="card">
+<div class="img">Product image</div>
+<div class="content">
+<div class="title">Wool Blend Blanket — Cozy 130×170</div>
+<div class="meta">Best seller • 4.9 ★ (2,031)</div>
+<div class="priceRow">
+<div class="price">€34.00 <span class="strike">€55.00</span></div>
+<div class="badge">-38%</div>
+</div>
+<button class="add">Add to cart</button>
+</div>
+</article>
+<article class="card">
+<div class="img">Product image</div>
+<div class="content">
+<div class="title">Chunky Wool Sweater — Unisex</div>
+<div class="meta">New • 4.6 ★ (410)</div>
+<div class="priceRow">
+<div class="price">€29.90 <span class="strike">€49.90</span></div>
+<div class="badge">-40%</div>
+</div>
+<button class="add">Add to cart</button>
+</div>
+</article>
+</div>
+</section>
+<section class="trust">
+<div class="mini"><h3>🔒 Secure checkout</h3><p>Cards, Apple Pay, Google Pay.</p></div>
+<div class="mini"><h3>↩️ Easy returns</h3><p>14 days, no stress.</p></div>
+<div class="mini"><h3>💬 Support</h3><p>Email or WhatsApp help.</p></div>
+</section>
+</main>
+<footer>
+   © <span id="year"></span> Nitin Wool • Shipping & Returns • Privacy • Terms
+</footer>
+<nav class="bottomnav" aria-label="Bottom navigation">
+<a class="bnitem" href="#"><strong>🏠</strong>Home</a>
+<a class="bnitem" href="#"><strong>🧭</strong>Categories</a>
+<a class="bnitem" href="#"><strong>🛒</strong>Cart</a>
+<a class="bnitem" href="#"><strong>👤</strong>Account</a>
+</nav>
+<script>
+   // Simple countdown demo
+   let s = 3*3600 + 21*60 + 10;
+   const el = document.getElementById('timer');
+   const tick = () => {
+     s = Math.max(0, s - 1);
+     const h = String(Math.floor(s/3600)).padStart(2,'0');
+     const m = String(Math.floor((s%3600)/60)).padStart(2,'0');
+     const ss = String(s%60).padStart(2,'0');
+     el.textContent = `${h}:${m}:${ss}`;
+   };
+   setInterval(tick, 1000);
+   document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
